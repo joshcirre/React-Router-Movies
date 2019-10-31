@@ -1,13 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const SavedList = props => (
   <div className='saved-list'>
     <h3>Saved Movies:</h3>
     {props.list.map(movie => (
-      <span key={movie.id} className='saved-movie'>
+      <NavLink
+        to={`/movie/${movie.id}`}
+        key={movie.id}
+        activeClassName='saved-active'
+        className='saved-movie'
+      >
         {movie.title}
-      </span>
+      </NavLink>
     ))}
     <Link to='/' className='home-button'>
       Home
